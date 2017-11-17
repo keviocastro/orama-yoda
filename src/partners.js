@@ -25,6 +25,7 @@ export const PartnerList = props => (
     <Datagrid>
       <NumberField source="id" />
       <TextField source="fb_id" />
+      <TextField source="fb_user_name" />
       <TextField source="name" />
       <TextField source="subtitle" />
       <ImageField source="logo.uri" />
@@ -54,6 +55,7 @@ export const PartnerEdit = props => (
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
       <TextInput source="fb_id" />
+      <TextInput source="fb_user_name" />
       <TextInput source="name" />
       <TextInput source="subtitle" />
       <ImageInput source="logo" label="Logo" accept="image/*">
@@ -76,6 +78,7 @@ export const PartnerCreate = props => (
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
       <TextInput source="fb_id" />
+      <TextInput source="fb_user_name" />
       <TextInput source="name" />
       <TextInput source="subtitle" />
       <ImageInput source="logo" label="Logo" accept="image/*">
