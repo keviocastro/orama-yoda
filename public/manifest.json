@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Orama",
+  "name": "Gestor do aplicativo Orama",
   "icons": [
     {
       "src": "favicon.ico",

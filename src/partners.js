@@ -21,16 +21,16 @@ import {
 } from "admin-on-rest";
 
 export const PartnerList = props => (
-  <List {...props} filters={<PartnerFilter />}>
+  <List {...props} title='Parceiros' >
     <Datagrid>
-      <NumberField source="id" />
-      <TextField source="fb_id" />
-      <TextField source="fb_user_name" />
-      <TextField source="name" />
-      <TextField source="subtitle" />
-      <ImageField source="logo.uri" />
+      <NumberField source="id" label='ID Orama' />
+      <TextField source="fb_id" label='ID do facebook' />
+      <TextField source="fb_user_name" label='Usuário do facebook' />
+      <TextField source="name" label='Nome da empresa' />
+      <TextField source="subtitle" label='Slogan' />
+      <ImageField source="logo.uri" label='Logo' />
       <ReferenceArrayField
-        label="Segments"
+        label="Segmentos de atuação"
         reference="segments"
         source="segmentIds"
       >
@@ -46,18 +46,18 @@ export const PartnerList = props => (
 export const PartnerEdit = props => (
   <Edit {...props}>
     <SimpleForm>
-      <DisabledInput source="id" />
+      <DisabledInput source="id" label='ID Orama' />
       <ReferenceArrayInput
-        label="segments"
+        label="Segmentos de atuação"
         source="segmentIds"
         reference="segments"
       >
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
-      <TextInput source="fb_id" />
-      <TextInput source="fb_user_name" />
-      <TextInput source="name" />
-      <TextInput source="subtitle" />
+      <TextInput source="fb_id" label='ID do facebook' />
+      <TextInput source="fb_user_name" label='Usuário do facebook' />
+      <TextInput source="name" label='Nome da empresa' />
+      <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="uri" title="name" />
       </ImageInput>
@@ -68,19 +68,18 @@ export const PartnerEdit = props => (
 export const PartnerCreate = props => (
   <Create {...props}>
     <SimpleForm redirect="list">
-      <DisabledInput source="id" />
       <ReferenceArrayInput
-        label="Segments"
+        label="Segmentos de atuação"
         source="segmentIds"
         reference="segments"
         allowEmpty
       >
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
-      <TextInput source="fb_id" />
-      <TextInput source="fb_user_name" />
-      <TextInput source="name" />
-      <TextInput source="subtitle" />
+      <TextInput source="fb_id" label='ID do facebook' />
+      <TextInput source="fb_user_name" label='Usuário do facebook' />
+      <TextInput source="name" label='Nome' />
+      <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="uri" title="name" />
       </ImageInput>
@@ -91,7 +90,7 @@ export const PartnerCreate = props => (
 const PartnerFilter = props => (
   <Filter {...props}>
     <ReferenceArrayInput
-      label="Segments"
+      label="Segmentos de atuação"
       source="segmentIds"
       reference="segments"
       allowEmpty

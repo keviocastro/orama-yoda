@@ -14,24 +14,25 @@ import {
 } from "admin-on-rest";
 
 export const SegmentList = props => (
-  <List {...props}>
+  <List {...props} title='Segmentos'>
     <Datagrid>
-      <TextField source="id" />
-      <TextField source="name" />
-      <ImageField source="image.uri" />
+      <TextField source="id" label="ID Orama" />
+      <TextField source="name" label="Nome" />
+      <ImageField source="image.uri" label="Imagem do segmento" />
       <EditButton />
     </Datagrid>
   </List>
 );
 
 export const SegmentEdit = props => (
-  <Edit {...props}>
+  <Edit {...props} title='Alterando segmento'>
     <SimpleForm redirect="list">
-      <DisabledInput source="id" />
-      <TextInput source="name" />
+      <DisabledInput source="id" label="ID Orama" />
+      <TextInput source="name" label="Nome" />
       <ImageInput
+        label="Imagem do segmento"
         source="image"
-        label="Image"
+        label="Imagem"
         accept="image/*"
         multiple={false}
       >
@@ -42,12 +43,12 @@ export const SegmentEdit = props => (
 );
 
 export const SegmentCreate = props => (
-  <Create {...props}>
+  <Create {...props} title='Criando um segmento'>
     <SimpleForm redirect="list">
-      <TextInput source="name" />
+      <TextInput source="name" label="Nome" />
       <ImageInput
         source="image"
-        label="Image"
+        label="Imagem do segmento"
         accept="image/*"
         multiple={false}
       >
