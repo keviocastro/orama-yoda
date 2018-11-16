@@ -17,18 +17,23 @@ import {
   TextInput,
   SimpleForm,
   Create,
-  Filter
+  Filter,
+  NumberInput,
+  BooleanInput,
+  BooleanField,
+  LongTextInput
 } from "admin-on-rest";
 
 export const PartnerList = props => (
-  <List {...props} title='Parceiros' >
+  <List {...props} title='Parceiros' filters={<PartnerFilter />} >
     <Datagrid>
       <NumberField source="id" label='ID Orama' />
-      <TextField source="fb_id" label='ID do facebook' />
-      <TextField source="fb_user_name" label='Usuário do facebook' />
+      <NumberField source="priority" label='Prioridade' />
+      <BooleanField source="highlighted" label="Destaque" />
+      <NumberField source="notification_credits" label='Créditos' />
+      <ImageField source="logo.uri" label='Logo' />
       <TextField source="name" label='Nome da empresa' />
       <TextField source="subtitle" label='Slogan' />
-      <ImageField source="logo.uri" label='Logo' />
       <ReferenceArrayField
         label="Segmentos de atuação"
         reference="segments"
@@ -57,10 +62,14 @@ export const PartnerEdit = props => (
       <TextInput source="fb_id" label='ID do facebook' />
       <TextInput source="fb_user_name" label='Usuário do facebook' />
       <TextInput source="name" label='Nome da empresa' />
+      <NumberInput source="priority" label='Prioridade de exibição' />
+      <BooleanInput source="highlighted" label='Exibir em destaque' />
+      <NumberInput source="notification_credits" label='Créditos de notificação' />
       <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="uri" title="name" />
       </ImageInput>
+      <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>
   </Edit>
 );
@@ -79,10 +88,14 @@ export const PartnerCreate = props => (
       <TextInput source="fb_id" label='ID do facebook' />
       <TextInput source="fb_user_name" label='Usuário do facebook' />
       <TextInput source="name" label='Nome' />
+      <NumberInput source="priority" label='Prioridade de exibição' />
+      <BooleanInput source="highlighted" label="Exibir em destaque" />
+      <NumberInput source="notification_credits" label='Créditos de notificação' />
       <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="uri" title="name" />
       </ImageInput>
+      <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>
   </Create>
 );
@@ -97,5 +110,7 @@ const PartnerFilter = props => (
     >
       <SelectArrayInput optionText="name" />
     </ReferenceArrayInput>
+    <BooleanInput source="highlighted" label="Destaques" />
+    <NumberInput source="notification_credits" label="Créditos" />
   </Filter>
 );

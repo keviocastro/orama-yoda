@@ -10,18 +10,20 @@ import {
   TextInput,
   Create,
   ImageInput,
-  ImageField
+  ImageField,
+  NumberField,
+  NumberInput
 } from "admin-on-rest";
 
 export const SegmentList = props => (
-  <List {...props} title='Segmentos'>
+  <List {...props} title='Segmentos' sort={{ field: 'priority' }}>
     <Datagrid>
-      <TextField source="id" label="ID Orama" />
       <TextField source="name" label="Nome" />
+      <NumberField source="priority" label="Prioridade" />
       <ImageField source="image.uri" label="Imagem do segmento" />
       <EditButton />
     </Datagrid>
-  </List>
+  </List >
 );
 
 export const SegmentEdit = props => (
@@ -29,6 +31,7 @@ export const SegmentEdit = props => (
     <SimpleForm redirect="list">
       <DisabledInput source="id" label="ID Orama" />
       <TextInput source="name" label="Nome" />
+      <NumberInput source="priority" label="Prioridade" />
       <ImageInput
         label="Imagem do segmento"
         source="image"
@@ -46,6 +49,7 @@ export const SegmentCreate = props => (
   <Create {...props} title='Criando um segmento'>
     <SimpleForm redirect="list">
       <TextInput source="name" label="Nome" />
+      <NumberInput source="priority" label="Prioridade" />
       <ImageInput
         source="image"
         label="Imagem do segmento"
