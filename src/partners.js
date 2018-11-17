@@ -31,7 +31,7 @@ export const PartnerList = props => (
       <NumberField source="priority" label='Prioridade' />
       <BooleanField source="highlighted" label="Destaque" />
       <NumberField source="notification_credits" label='Créditos' />
-      <ImageField source="logo.uri" label='Logo' />
+      <ImageField source="logo" label='Logo' />
       <TextField source="name" label='Nome da empresa' />
       <TextField source="subtitle" label='Slogan' />
       <ReferenceArrayField
@@ -64,10 +64,14 @@ export const PartnerEdit = props => (
       <TextInput source="name" label='Nome da empresa' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label='Exibir em destaque' />
+      <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
+        <ImageField source="highlight_image" title="Imagem de destaque" />
+      </ImageInput>
+      <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
       <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
-        <ImageField source="uri" title="name" />
+        <ImageField source="logo" title="name" />
       </ImageInput>
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>
@@ -90,10 +94,14 @@ export const PartnerCreate = props => (
       <TextInput source="name" label='Nome' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label="Exibir em destaque" />
+      <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
+        <ImageField source="highlight_image" title="Imagem de destaque" />
+      </ImageInput>
+      <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
       <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
-        <ImageField source="uri" title="name" />
+        <ImageField source="logo" title="name" />
       </ImageInput>
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>

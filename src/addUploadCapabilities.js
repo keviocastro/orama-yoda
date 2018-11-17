@@ -8,10 +8,13 @@ const convertFileToBase64 = file =>
   });
 
 const addUploadCapabilities = requestHandler => (type, resource, params) => {
-  if ((type === "UPDATE" || type === "CREATE") && resource === "segments") {
+  console.log(params)
+  console.log(type)
+  if ((type === "UPDATE" || type === "CREATE")) {
     // only one image
     if (Array.isArray(params.data.image))
       params.data.image = params.data.image[0];
+
 
     if (checkInputNewImage(params, "image")) {
       return makeRequestHandlerParams(
@@ -20,11 +23,10 @@ const addUploadCapabilities = requestHandler => (type, resource, params) => {
         "image"
       );
     }
-  }
 
-  if ((type === "UPDATE" || type === "CREATE") && resource === "partners") {
-    // only one image
-    if (Array.isArray(params.data.logo)) params.data.logo = params.data.logo[0];
+    if (Array.isArray(params.data.logo))
+      params.data.logo = params.data.logo[0];
+
 
     if (checkInputNewImage(params, "logo")) {
       return makeRequestHandlerParams(
@@ -57,7 +59,7 @@ const makeRequestHandlerParams = (
   const file = params.data[imageParamName].rawFile;
   return convertFileToBase64(file)
     .then(base64Image => ({
-      uri: base64Image,
+      base64: base64Image,
       name: `${file.name}`
     }))
     .then(transformedNewImage => {

@@ -20,7 +20,7 @@ export const SegmentList = props => (
     <Datagrid>
       <TextField source="name" label="Nome" />
       <NumberField source="priority" label="Prioridade" />
-      <ImageField source="image.uri" label="Imagem do segmento" />
+      <ImageField source="image" label="Imagem do segmento" />
       <EditButton />
     </Datagrid>
   </List >
@@ -35,11 +35,10 @@ export const SegmentEdit = props => (
       <ImageInput
         label="Imagem do segmento"
         source="image"
-        label="Imagem"
         accept="image/*"
         multiple={false}
       >
-        <ImageField source="uri" title="name" />
+        <ImageField source="image" title="name" />
       </ImageInput>
     </SimpleForm>
   </Edit>
@@ -56,7 +55,7 @@ export const SegmentCreate = props => (
         accept="image/*"
         multiple={false}
       >
-        <ImageField source="uri" title="name" />
+        <ImageField source="image" title="name" />
       </ImageInput>
     </SimpleForm>
   </Create>

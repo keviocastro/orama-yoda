@@ -17,7 +17,7 @@ const restClient = jsonServerRestClient(API_URL);
 const restCapableClient = addUploadCapabilities(restClient);
 
 const App = () => (
-  <Admin restClient={restCapableClient} title="Orama" icon={<img src={'logo.svg'} />} locale="pt" messages={messages} >
+  <Admin restClient={restCapableClient} title="Orama" locale="pt" messages={messages} >
     <Resource
       options={{ label: 'Segmentos' }}
       name="segments"
