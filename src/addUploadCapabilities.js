@@ -8,13 +8,11 @@ const convertFileToBase64 = file =>
   });
 
 const addUploadCapabilities = requestHandler => (type, resource, params) => {
-  console.log(params)
-  console.log(type)
+
   if ((type === "UPDATE" || type === "CREATE")) {
-    // only one image
+
     if (Array.isArray(params.data.image))
       params.data.image = params.data.image[0];
-
 
     if (checkInputNewImage(params, "image")) {
       return makeRequestHandlerParams(
@@ -24,9 +22,30 @@ const addUploadCapabilities = requestHandler => (type, resource, params) => {
       );
     }
 
+    if (Array.isArray(params.data.highlight_image))
+      params.data.highlight_image = params.data.highlight_image[0];
+
+    if (checkInputNewImage(params, "highlight_image")) {
+      return makeRequestHandlerParams(
+        params,
+        newPrams => requestHandler(type, resource, newPrams),
+        "highlight_image"
+      );
+    }
+
+    if (Array.isArray(params.data.feed_image))
+      params.data.feed_image = params.data.feed_image[0];
+
+    if (checkInputNewImage(params, "feed_image")) {
+      return makeRequestHandlerParams(
+        params,
+        newPrams => requestHandler(type, resource, newPrams),
+        "feed_image"
+      );
+    }
+
     if (Array.isArray(params.data.logo))
       params.data.logo = params.data.logo[0];
-
 
     if (checkInputNewImage(params, "logo")) {
       return makeRequestHandlerParams(

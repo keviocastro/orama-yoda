@@ -1,0 +1,5 @@
+dispatch:
+  - url: "yoda.o-rama.store/*"
+    service: default
+  - url: "api.o-rama.store/*"
+    service: api
