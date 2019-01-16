@@ -25,7 +25,7 @@ import {
 } from "admin-on-rest";
 
 export const PartnerList = props => (
-  <List {...props} title='Parceiros' filters={<PartnerFilter />} >
+  <List {...props} title='Parceiros' sort={{ priority: 'priority' }} filters={<PartnerFilter />} >
     <Datagrid>
       <NumberField source="id" label='ID Orama' />
       <NumberField source="priority" label='Prioridade' />
@@ -67,6 +67,9 @@ export const PartnerEdit = props => (
       <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
         <ImageField source="highlight_image" title="Imagem de destaque" />
       </ImageInput>
+      <ImageInput source="feed_image" label="Imagem principal dos posts" accept="image/*">
+        <ImageField source="feed_image" title="Imagem principal na listagem de posts" />
+      </ImageInput>
       <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
       <TextInput source="subtitle" label='Slogan' />
@@ -96,6 +99,9 @@ export const PartnerCreate = props => (
       <BooleanInput source="highlighted" label="Exibir em destaque" />
       <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
         <ImageField source="highlight_image" title="Imagem de destaque" />
+      </ImageInput>
+      <ImageInput source="feed_image" label="Imagem principal dos posts" accept="image/*">
+        <ImageField source="feed_image" title="Imagem principal na listagem de posts" />
       </ImageInput>
       <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
