@@ -8,14 +8,9 @@ const convertFileToBase64 = file =>
   });
 
 const addUploadCapabilities = requestHandler => (type, resource, params) => {
-  console.log(params)
-  console.log(type)
   if ((type === "UPDATE" || type === "CREATE")) {
-    // only one image
-    if (Array.isArray(params.data.image))
-      params.data.image = params.data.image[0];
 
-
+    arrayToObject(params)
     if (checkInputNewImage(params, "image")) {
       return makeRequestHandlerParams(
         params,
@@ -24,10 +19,7 @@ const addUploadCapabilities = requestHandler => (type, resource, params) => {
       );
     }
 
-    if (Array.isArray(params.data.logo))
-      params.data.logo = params.data.logo[0];
-
-
+    arrayToObject(params, "logo")
     if (checkInputNewImage(params, "logo")) {
       return makeRequestHandlerParams(
         params,
@@ -35,16 +27,39 @@ const addUploadCapabilities = requestHandler => (type, resource, params) => {
         "logo"
       );
     }
+
+
+    arrayToObject(params, "highlight_image")
+    if (checkInputNewImage(params, "highlight_image")) {
+      return makeRequestHandlerParams(
+        params,
+        newPrams => requestHandler(type, resource, newPrams),
+        "highlight_image"
+      );
+    }
+
+    arrayToObject(params, "feed_image")
+    if (checkInputNewImage(params, "feed_image")) {
+      return makeRequestHandlerParams(
+        params,
+        newPrams => requestHandler(type, resource, newPrams),
+        "feed_image"
+      );
+    }
   }
 
   return requestHandler(type, resource, params);
 };
 
+const arrayToObject = (params, imageParamName = "image") => {
+  if (Array.isArray(params.data[imageParamName])) {
+    params.data[imageParamName] = params.data[imageParamName][0]
+  }
+}
+
 const checkInputNewImage = (params, imageParamName = "image") => {
-  if (
-    params.data[imageParamName] &&
-    params.data[imageParamName].rawFile instanceof File
-  ) {
+  if (params.data[imageParamName] &&
+    params.data[imageParamName].rawFile instanceof File) {
     return true;
   } else {
     return false;

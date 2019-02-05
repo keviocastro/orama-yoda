@@ -73,6 +73,9 @@ export const PartnerEdit = props => (
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="logo" title="name" />
       </ImageInput>
+      <ImageInput source="feed_image" label="Imagem principal do feed" accept="image/*">
+        <ImageField source="feed_image" title="name" />
+      </ImageInput>
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>
   </Edit>
@@ -102,6 +105,9 @@ export const PartnerCreate = props => (
       <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="logo" title="name" />
+      </ImageInput>
+      <ImageInput source="feed_image" label="Imagem principal do feed" accept="image/*">
+        <ImageField source="feed_image" title="name" />
       </ImageInput>
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>
