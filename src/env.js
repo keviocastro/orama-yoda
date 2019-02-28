@@ -1,1 +1,1 @@
-export const API_URL = 'http://35.247.212.164'
+export const API_URL = 'https://us-central1-o-rama2.cloudfunctions.net/api'
