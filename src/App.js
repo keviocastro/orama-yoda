@@ -1,23 +1,26 @@
 import React from "react";
-import { jsonServerRestClient, Admin, Resource, Delete } from "admin-on-rest";
+import { Admin, Resource, Delete } from "admin-on-rest";
 import { SegmentList, SegmentEdit, SegmentCreate } from "./segments";
 import { PartnerList, PartnerEdit, PartnerCreate } from "./partners";
 import { NotifierList, NotifierCreate, NotifierEdit } from "./notifications";
-import addUploadCapabilities from "./addUploadCapabilities";
 import portuguesMessages from 'aor-language-portugues';
-import { API_URL } from './env';
 import SegmentIcon from 'material-ui/svg-icons/action/group-work';
 import PartnerIcon from 'material-ui/svg-icons/action/store';
 import NotificationsIcon from 'material-ui/svg-icons/alert/add-alert';
+import RestClient from "./firestore";
 
 const messages = {
   'pt': portuguesMessages,
 };
-const restClient = jsonServerRestClient(API_URL);
-const restCapableClient = addUploadCapabilities(restClient);
+
+//const restCapableClient = addUploadCapabilities(RestClient);
 
 const App = () => (
-  <Admin restClient={restCapableClient} title="Orama" locale="pt" messages={messages} >
+  <Admin
+    restClient={RestClient(RestClient)}
+    title="Orama"
+    locale="pt"
+    messages={messages} >
     <Resource
       options={{ label: 'Segmentos' }}
       name="segments"

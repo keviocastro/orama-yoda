@@ -1,1 +1,8 @@
-export const API_URL = 'https://us-central1-o-rama2.cloudfunctions.net/api'
+export const FIREBASE_CREDENTIALS = {
+    apiKey: "<apiKey>",
+    authDomain: "<domain>.firebaseapp.com",
+    databaseURL: "https://<domain>.firebaseio.com",
+    projectId: "<projectId>",
+    storageBucket: "<domain>.appspot.com",
+    messagingSenderId: "<senderId>"
+};

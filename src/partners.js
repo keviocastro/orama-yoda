@@ -25,7 +25,7 @@ import {
 } from "admin-on-rest";
 
 export const PartnerList = props => (
-  <List {...props} title='Parceiros' filters={<PartnerFilter />} >
+  <List {...props} title='Parceiros' filters={<PartnerFilter />} sort={{ field: 'name', order: 'ASC' }} >
     <Datagrid>
       <NumberField source="id" label='ID Orama' />
       <NumberField source="priority" label='Prioridade' />
@@ -35,6 +35,7 @@ export const PartnerList = props => (
       <TextField source="name" label='Nome da empresa' />
       <TextField source="subtitle" label='Slogan' />
       <ReferenceArrayField
+        sortable={false}
         label="Segmentos de atuação"
         reference="segments"
         source="segmentIds"
