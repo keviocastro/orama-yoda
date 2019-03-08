@@ -1,5 +1,26 @@
 {
   "projects": {
     "default": "o-rama2"
+  },
+  "targets": {
+    "o-rama2": {
+      "hosting": {
+        "politics": [
+          "politics"
+        ],
+        "o-rama2.firebaseapp.com": [
+          "yoda"
+        ],
+        "o-rama2": [
+          "o-rama2"
+        ],
+        "o-rama2-privacidade": [
+          "o-rama2-privacidade"
+        ],
+        "o-rama-politica-privacidade": [
+          "o-rama-politica-privacidade"
+        ]
+      }
+    }
   }
 }

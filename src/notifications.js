@@ -48,6 +48,7 @@ export const NotifierEdit = props => (
             >
                 <ImageField source="image" title="Imagem" />
             </ImageInput>
+            <ImageField source="image" title="Imagem" />
         </SimpleForm>
     </Edit>
 );

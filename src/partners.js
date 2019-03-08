@@ -61,23 +61,33 @@ export const PartnerEdit = props => (
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
       <TextInput source="fb_id" label='ID do facebook' />
-      <TextInput source="fb_user_name" label='Usuário do facebook' />
       <TextInput source="name" label='Nome da empresa' />
+      <TextInput source="subtitle" label='Slogan' />
+      <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label='Exibir em destaque' />
-      <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
-        <ImageField source="highlight_image" title="Imagem de destaque" />
-      </ImageInput>
-      <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
-      <TextInput source="subtitle" label='Slogan' />
+
+      <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
+        <ImageField source="highlight_image" title="Imagem atual" />
+      </ImageInput>
+      <ImageField source="highlight_image" title="Imagem atual" />
+
+
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="logo" title="name" />
       </ImageInput>
+      <ImageField source="logo" title="Imagem atual" />
+
       <ImageInput source="feed_image" label="Imagem principal do feed" accept="image/*">
         <ImageField source="feed_image" title="name" />
       </ImageInput>
-      <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
+      <ImageField source="feed_image" title="Imagem atual" />
+
+      <ImageInput source="last_post" title="Ultimo post" >
+        <ImageField source="feed_image" title="Ultimo post" />
+      </ImageInput>
+      <ImageField source="last_post" title="Ultimo post" />
     </SimpleForm>
   </Edit>
 );
@@ -94,22 +104,28 @@ export const PartnerCreate = props => (
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
       <TextInput source="fb_id" label='ID do facebook' />
-      <TextInput source="fb_user_name" label='Usuário do facebook' />
       <TextInput source="name" label='Nome' />
+      <TextInput source="subtitle" label='Slogan' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label="Exibir em destaque" />
+
       <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
         <ImageField source="highlight_image" title="Imagem de destaque" />
       </ImageInput>
+      <ImageField source="highlight_image" title="Imagem de destaque" />
+
       <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
-      <TextInput source="subtitle" label='Slogan' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="logo" title="name" />
       </ImageInput>
+      <ImageField source="logo" title="Logo" />
+
       <ImageInput source="feed_image" label="Imagem principal do feed" accept="image/*">
         <ImageField source="feed_image" title="name" />
       </ImageInput>
+      <ImageField source="feed_image" title="Imagem principal do feed" />
+
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
     </SimpleForm>
   </Create>

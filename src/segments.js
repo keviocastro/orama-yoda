@@ -38,8 +38,9 @@ export const SegmentEdit = props => (
         accept="image/*"
         multiple={false}
       >
-        <ImageField source="image" title="name" />
+        <ImageField source="image" title="image" />
       </ImageInput>
+      <ImageField source="image" title="Imagem atual" />
     </SimpleForm>
   </Edit>
 );
