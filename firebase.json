@@ -29,10 +29,15 @@
           "destination": "/politica-privacidade.html"
         }
       ]
+    },
+    {
+      "target": "o-rama-static",
+      "public": "static",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
     }
-  ],
-  "firestore": {
-    "rules": "firestore.rules",
-    "indexes": "firestore.indexes.json"
-  }
+  ]
 }

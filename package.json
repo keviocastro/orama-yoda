@@ -10,6 +10,7 @@
     "firebase-admin": "^7.0.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-facebook-login": "^4.1.1",
     "react-scripts": "1.0.17",
     "sort-by": "^1.2.0"
   },

@@ -19,6 +19,12 @@
         ],
         "o-rama-politica-privacidade": [
           "o-rama-politica-privacidade"
+        ],
+        "static": [
+          "static"
+        ],
+        "o-rama-static": [
+          "o-rama-static"
         ]
       }
     }

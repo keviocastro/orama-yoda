@@ -1,9 +1,4 @@
-import firebase from 'firebase';
-import 'firebase/firestore';
-import { FIREBASE_CREDENTIALS } from './env';
-
-firebase.initializeApp(FIREBASE_CREDENTIALS);
-
+import firebase from './firebaseAuth'
 const db = firebase.firestore();
 
 const GET_LIST = 'GET_LIST';

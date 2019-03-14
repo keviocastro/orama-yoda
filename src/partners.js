@@ -23,6 +23,7 @@ import {
   BooleanField,
   LongTextInput
 } from "admin-on-rest";
+import FbId from './components/fbId';
 
 export const PartnerList = props => (
   <List {...props} title='Parceiros' filters={<PartnerFilter />} sort={{ field: 'name', order: 'ASC' }} >
@@ -60,9 +61,11 @@ export const PartnerEdit = props => (
       >
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
-      <TextInput source="fb_id" label='ID do facebook' />
       <TextInput source="name" label='Nome da empresa' />
       <TextInput source="subtitle" label='Slogan' />
+      <TextInput source="pass" label='Senha' />
+      <TextField source="fb_id" label='ID do facebook' />
+      <FbId />
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label='Exibir em destaque' />
@@ -72,7 +75,6 @@ export const PartnerEdit = props => (
         <ImageField source="highlight_image" title="Imagem atual" />
       </ImageInput>
       <ImageField source="highlight_image" title="Imagem atual" />
-
 
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="logo" title="name" />
@@ -84,10 +86,10 @@ export const PartnerEdit = props => (
       </ImageInput>
       <ImageField source="feed_image" title="Imagem atual" />
 
-      <ImageInput source="last_post" title="Ultimo post" >
+      <ImageInput source="last_post" title="Ultimo post" label="Imagem do post" >
         <ImageField source="feed_image" title="Ultimo post" />
       </ImageInput>
-      <ImageField source="last_post" title="Ultimo post" />
+      <ImageField source="last_post" title="Ultimo post" label="Imagem do post" />
     </SimpleForm>
   </Edit>
 );
@@ -103,18 +105,19 @@ export const PartnerCreate = props => (
       >
         <SelectArrayInput optionText="name" />
       </ReferenceArrayInput>
-      <TextInput source="fb_id" label='ID do facebook' />
       <TextInput source="name" label='Nome' />
       <TextInput source="subtitle" label='Slogan' />
+      <TextInput source="pass" label='Senha' />
+      <TextInput source="fb_id" label='ID do facebook' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label="Exibir em destaque" />
+      <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
 
       <ImageInput source="highlight_image" label="Imagem de destaque" accept="image/*">
         <ImageField source="highlight_image" title="Imagem de destaque" />
       </ImageInput>
       <ImageField source="highlight_image" title="Imagem de destaque" />
 
-      <TextInput source="highlight_message" label='Mensagem em destaque' />
       <NumberInput source="notification_credits" label='Créditos de notificação' />
       <ImageInput source="logo" label="Logo" accept="image/*">
         <ImageField source="logo" title="name" />
@@ -126,7 +129,11 @@ export const PartnerCreate = props => (
       </ImageInput>
       <ImageField source="feed_image" title="Imagem principal do feed" />
 
-      <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
+      <ImageInput source="last_post" title="Ultimo post" label="Imagem do post" >
+        <ImageField source="feed_image" title="Ultimo post" />
+      </ImageInput>
+      <ImageField source="last_post" title="Ultimo post" label="Imagem do post" />
+
     </SimpleForm>
   </Create>
 );
