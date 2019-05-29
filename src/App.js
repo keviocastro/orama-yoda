@@ -8,16 +8,17 @@ import SegmentIcon from 'material-ui/svg-icons/action/group-work';
 import PartnerIcon from 'material-ui/svg-icons/action/store';
 import NotificationsIcon from 'material-ui/svg-icons/alert/add-alert';
 import RestClient from "./firestore";
+import authClient from './authClient';
+
 
 const messages = {
   'pt': portuguesMessages,
 };
 
-//const restCapableClient = addUploadCapabilities(RestClient);
-
 const App = () => (
   <Admin
     restClient={RestClient(RestClient)}
+    authClient={authClient}
     title="Orama"
     locale="pt"
     messages={messages} >

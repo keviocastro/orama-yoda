@@ -21,32 +21,47 @@ import {
   NumberInput,
   BooleanInput,
   BooleanField,
-  LongTextInput
+  LongTextInput,
+  Responsive,
+  SimpleList
 } from "admin-on-rest";
-import FbId from './components/fbId';
 
 export const PartnerList = props => (
   <List {...props} title='Parceiros' filters={<PartnerFilter />} sort={{ field: 'name', order: 'ASC' }} >
-    <Datagrid>
-      <NumberField source="id" label='ID Orama' />
-      <NumberField source="priority" label='Prioridade' />
-      <BooleanField source="highlighted" label="Destaque" />
-      <NumberField source="notification_credits" label='Créditos' />
-      <ImageField source="logo" label='Logo' />
-      <TextField source="name" label='Nome da empresa' />
-      <TextField source="subtitle" label='Slogan' />
-      <ReferenceArrayField
-        sortable={false}
-        label="Segmentos de atuação"
-        reference="segments"
-        source="segmentIds"
-      >
-        <SingleFieldList>
-          <ChipField source="name" />
-        </SingleFieldList>
-      </ReferenceArrayField>
-      <EditButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+          primaryText={partner => partner.name}
+          secondaryText={partner => partner.segments_name}
+          tertiaryText={partner => {
+            let credits = partner.notification_credits ? partner.notification_credits : 0
+            return `${credits}`
+          }}
+        />
+      }
+      medium={
+        <Datagrid>
+          <NumberField source="id" label='ID Orama' />
+          <NumberField source="priority" label='Prioridade' />
+          <BooleanField source="highlighted" label="Destaque" />
+          <NumberField source="notification_credits" label='Créditos' />
+          <ImageField source="logo" label='Logo' />
+          <TextField source="name" label='Nome da empresa' />
+          <TextField source="subtitle" label='Slogan' />
+          <ReferenceArrayField
+            sortable={false}
+            label="Segmentos de atuação"
+            reference="segments"
+            source="segmentIds"
+          >
+            <SingleFieldList>
+              <ChipField source="name" />
+            </SingleFieldList>
+          </ReferenceArrayField>
+          <EditButton />
+        </Datagrid>
+      }
+    />
   </List>
 );
 
@@ -64,8 +79,6 @@ export const PartnerEdit = props => (
       <TextInput source="name" label='Nome da empresa' />
       <TextInput source="subtitle" label='Slogan' />
       <TextInput source="pass" label='Senha' />
-      <TextField source="fb_id" label='ID do facebook' />
-      <FbId />
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label='Exibir em destaque' />
@@ -90,6 +103,7 @@ export const PartnerEdit = props => (
         <ImageField source="feed_image" title="Ultimo post" />
       </ImageInput>
       <ImageField source="last_post" title="Ultimo post" label="Imagem do post" />
+      <TextInput source="teste" label='Teste' />
     </SimpleForm>
   </Edit>
 );
@@ -108,7 +122,6 @@ export const PartnerCreate = props => (
       <TextInput source="name" label='Nome' />
       <TextInput source="subtitle" label='Slogan' />
       <TextInput source="pass" label='Senha' />
-      <TextInput source="fb_id" label='ID do facebook' />
       <NumberInput source="priority" label='Prioridade de exibição' />
       <BooleanInput source="highlighted" label="Exibir em destaque" />
       <LongTextInput source="welcome_messages" label='Mensagens de boas vindas do chat' />

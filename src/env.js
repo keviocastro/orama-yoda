@@ -1,8 +1,8 @@
 export const FIREBASE_CREDENTIALS = {
-    apiKey: "<apiKey>",
-    authDomain: "<domain>.firebaseapp.com",
-    databaseURL: "https://<domain>.firebaseio.com",
-    projectId: "<projectId>",
-    storageBucket: "<domain>.appspot.com",
-    messagingSenderId: "<senderId>"
+    apiKey: "AIzaSyC5GVAD8hkLMttaR3eTK_fjNI0DQHLltnA",
+    authDomain: "o-rama2.firebaseapp.com",
+    databaseURL: "https://o-rama2.firebaseio.com",
+    projectId: "o-rama2",
+    storageBucket: "o-rama2.appspot.com",
+    messagingSenderId: "616321582414"
 };

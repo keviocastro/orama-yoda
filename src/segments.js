@@ -12,17 +12,28 @@ import {
   ImageInput,
   ImageField,
   NumberField,
-  NumberInput
+  NumberInput,
+  Responsive,
+  SimpleList
 } from "admin-on-rest";
 
 export const SegmentList = props => (
   <List {...props} title='Segmentos' sort={{ field: 'priority' }}>
-    <Datagrid>
-      <TextField source="name" label="Nome" />
-      <NumberField source="priority" label="Prioridade" />
-      <ImageField source="image" label="Imagem do segmento" />
-      <EditButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+          primaryText={segment => segment.name}
+          tertiaryText={segment => segment.priority}
+        />}
+      medium={
+        <Datagrid>
+          <TextField source="name" label="Nome" />
+          <NumberField source="priority" label="Prioridade" />
+          <ImageField source="image" label="Imagem do segmento" />
+          <EditButton />
+        </Datagrid>
+      }
+    />
   </List >
 );
 
