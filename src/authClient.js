@@ -22,12 +22,12 @@ export default (type, params) => {
     window.location.href = "https://o-rama2.firebaseapp.com/#login";
   }
   if (type === AUTH_ERROR) {
-    throw new Error('Ops... Você sem permissões de acesso');
+    throw new Error('Ops... Você precisa estar logado para acssar essa página');
   }
   if (type === AUTH_CHECK) {
     let token = localStorage.getItem('token');
     let check = typeof token === 'string' && token.length === 20;
     return check ? Promise.resolve() : Promise.reject();
   }
-  return Promise.reject('Unkown method');
+  return Promise.resolve();
 };

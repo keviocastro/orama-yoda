@@ -100,10 +100,10 @@ export const PartnerEdit = props => (
       <ImageField source="feed_image" title="Imagem atual" />
 
       <ImageInput source="last_post" title="Ultimo post" label="Imagem do post" >
-        <ImageField source="feed_image" title="Ultimo post" />
+        <ImageField source="last_post" title="Ultimo post" />
       </ImageInput>
       <ImageField source="last_post" title="Ultimo post" label="Imagem do post" />
-      <TextInput source="teste" label='Teste' />
+
     </SimpleForm>
   </Edit>
 );
@@ -143,7 +143,7 @@ export const PartnerCreate = props => (
       <ImageField source="feed_image" title="Imagem principal do feed" />
 
       <ImageInput source="last_post" title="Ultimo post" label="Imagem do post" >
-        <ImageField source="feed_image" title="Ultimo post" />
+        <ImageField source="last_post" title="Ultimo post" />
       </ImageInput>
       <ImageField source="last_post" title="Ultimo post" label="Imagem do post" />
 
